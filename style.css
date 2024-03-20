@@ -1,0 +1,39 @@
+body{
+    width: 100%;
+    height: 100%;
+}
+.starwars-bg {
+    background-image: url('image/starwars_bg.jpeg');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+  }
+
+  .renderBtn {
+    margin:40px 0 40px 0;
+    width: 400px;
+  
+  }
+
+  .card {
+    background-color: transparent;
+    border: none;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    margin: 10px 0 10px 0;
+  }
+
+  .card img {
+    width: 250px;
+    height: 350px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  .cart h4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
