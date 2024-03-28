@@ -141,7 +141,7 @@ function renderCharacters() {
           <h4 class="position-absolute mt-4 mx-3  px-1 bg-info w-35 rounded-circle text-white">${character.id}</h4>
           <p class="text-white">${character.name}</p>
           <p class=" text-muted">${character.homeworld || "other"}</p>
-        </div>`;
+        </div>`
     }
   } else {
     row.innerHTML = ""; 
@@ -169,15 +169,51 @@ console.log("homeworldsLowercase:", homeworldsLowercase);
 
 console.log("Unique Name : Tekrarlayan homeworld'ler kaldırıldı. ",homeworldsUnique);
 
-homeworld = homeworldsLowercase;
+const homeworld = homeworldsLowercase;
 
 console.log("Homeworld: ",homeworld);
 
 
-//Projeyi buraya kadar yapabildim. Yetiştiremedim.
 
 
+ // InputDiv elementini seçme
+ const inputDiv = document.getElementById("inputDiv");
+ inputDiv.innerHTML = homeworld.map((homeworld) =>
+  `<div class="form-check">
+  <input class="form-check-input" type="radio" name="random" value="${homeworld}" id="${homeworld}">
+  <label class="form-check-label" for="homeworld - ${homeworld}">${homeworld}</label>
+  </div>
+  `
+ ).join("");
+
+ console.log(inputDiv,"inputDiv");
+ console.log(homeworld,"inputDiv");
+
+ inputDiv.addEventListener("change", function(event) {
+  if(event.target.classList.contains("form-check-input")){
+    const selectedHomeworld = event.target.value
+    const selectedHomeworldCharacters = characters.filter(
+      (character) => {
+      const homeworld = character.homeworld ? character.homeworld.toLowerCase() : "other"
+      return homeworld === selectedHomeworld
+    }
+    )
+
+    console.log("tıklandı");
+    console.log(selectedHomeworldCharacters);
 
 
-
+  const row = document.querySelector(".row");
+  row.innerHTML = selectedHomeworldCharacters.map((character) => {
+    return(
+    `<div class="col-lg-3 col-md-6 col-sm-12 card text-center mx-auto" style="width: 18rem;">
+    <img src="${character.pic}">
+    <h4 class="position-absolute mt-4 mx-3  px-1 bg-info w-35 rounded-circle text-white">${character.id}</h4>
+    <p class="text-white">${character.name}</p>
+    <p class=" text-muted">${character.homeworld || "other"}</p>
+    </div>`)
+ 
+   }).join("")
+  }
+ })
 

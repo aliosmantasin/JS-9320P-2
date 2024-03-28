@@ -37,3 +37,27 @@ body{
     left: 0;
   }
 
+  #inputDiv {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  .inclusiveImput {
+   color: white;
+    background-color: rgb(9, 21, 95);
+    flex-wrap: wrap;
+    border: 1px solid white;
+  }
+  .inclusiveImput .form-check{
+    margin-right: 5px;
+    border-right: 1 px solid black;
+    text-transform: uppercase;
+  
+  }
+   
+   
+ 
+
